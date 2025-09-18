@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatchTheMouse.Lib", "CatchTheMouse.Lib\CatchTheMouse.Lib.csproj", "{EAE2F80B-BD95-4819-AFA6-8551CF17D00E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatchTheMouse.GUI", "CatchTheMouse.GUI\CatchTheMouse.GUI.csproj", "{DC0EB8F8-4ACF-411A-8D09-626F451F61AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAE2F80B-BD95-4819-AFA6-8551CF17D00E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE2F80B-BD95-4819-AFA6-8551CF17D00E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE2F80B-BD95-4819-AFA6-8551CF17D00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE2F80B-BD95-4819-AFA6-8551CF17D00E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC0EB8F8-4ACF-411A-8D09-626F451F61AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC0EB8F8-4ACF-411A-8D09-626F451F61AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC0EB8F8-4ACF-411A-8D09-626F451F61AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC0EB8F8-4ACF-411A-8D09-626F451F61AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {451EA03B-91FD-4FF0-8916-4E7CBB536287}
+	EndGlobalSection
+EndGlobal
