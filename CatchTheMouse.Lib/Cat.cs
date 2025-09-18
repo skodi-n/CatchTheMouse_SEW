@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace CatchTheMouse.Lib
 {
-    internal class Cat
+    internal class Cat : Player
     {
+
+        public Cat(PlayingArea playingArea) : base(playingArea)
+        {
+
+
+
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace CatchTheMouse.Lib
 {
     abstract internal class Player
     {
-        static Random _random;
+        static Random _random = new Random();
 
         public Position Position { get; }
 
@@ -26,7 +26,8 @@ namespace CatchTheMouse.Lib
             if (!_playingArea.IsValid(position)) 
             {
 
-                new Position(position.X, position.Y);
+                Position.X = position.X;
+                Position.Y = position.Y;
             
             }
 
@@ -34,8 +35,10 @@ namespace CatchTheMouse.Lib
 
         virtual public Position Move()
         {
-
-            return null;
+            Position.X = _random.Next(0, _playingArea.Width - 1);
+            Position.Y = _random.Next(0, _playingArea.Height - 1);
+            return Position;
+            
 
         }
     }

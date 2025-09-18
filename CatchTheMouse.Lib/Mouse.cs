@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace CatchTheMouse.Lib
 {
-    internal class Mouse
+    internal class Mouse : Player
     {
+        public Mouse(PlayingArea playingArea) : base(playingArea)
+        {
+        }
+
+        public override Position Move()
+        {
+            
+        }
+
+
+
     }
 }
