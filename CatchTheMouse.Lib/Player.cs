@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CatchTheMouse.Lib
 {
-    abstract internal class Player
+    abstract public class Player
     {
         static Random _random = new Random();
 

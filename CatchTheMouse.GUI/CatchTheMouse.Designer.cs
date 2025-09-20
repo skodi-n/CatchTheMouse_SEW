@@ -1,6 +1,6 @@
 ﻿namespace CatchTheMouse.GUI
 {
-    partial class Form1
+    partial class CatchTheMouse
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,13 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.flwCTM = new System.Windows.Forms.FlowLayoutPanel();
+            this.SuspendLayout();
+            // 
+            // flwCTM
+            // 
+            this.flwCTM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flwCTM.Location = new System.Drawing.Point(0, 0);
+            this.flwCTM.Name = "flwCTM";
+            this.flwCTM.Size = new System.Drawing.Size(944, 909);
+            this.flwCTM.TabIndex = 0;
+            this.flwCTM.Paint += new System.Windows.Forms.PaintEventHandler(this.flwCTM_Paint);
+            // 
+            // CatchTheMouse
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(944, 909);
+            this.Controls.Add(this.flwCTM);
+            this.Name = "CatchTheMouse";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.CatchTheMouse_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+
+
+        private System.Windows.Forms.FlowLayoutPanel flwCTM;
     }
 }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CatchTheMouse.Lib
 {
-    internal class Cat : Player
+    public class Cat : Player
     {
 
         public Cat(PlayingArea playingArea) : base(playingArea)

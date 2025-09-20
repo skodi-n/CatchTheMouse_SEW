@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CatchTheMouse.Lib
 {
-    internal class Position
+    public class Position
     {
         public int X {  get; internal set; }
 
