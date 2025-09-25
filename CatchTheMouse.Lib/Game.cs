@@ -15,9 +15,15 @@ namespace CatchTheMouse.Lib
         public bool GameOver { get; }
 
         public Game(int width, int height)
-        { 
-        
-        
+        {
+            new PlayingArea(width, height);
+            
+            if (Mouse.Position.X == Cat.Position.X && Mouse.Position.Y == Cat.Position.Y)
+            {
+
+                GameOver = true;
+
+            }
         
         }
         
