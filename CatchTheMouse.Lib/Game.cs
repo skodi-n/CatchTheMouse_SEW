@@ -8,23 +8,33 @@ namespace CatchTheMouse.Lib
 {
     public class Game
     {
+
+
         public Player Mouse { get; }
 
         public Player Cat { get; }
 
-        public bool GameOver { get; }
+        public bool IsGameOver
+        {
+            get
+            {
+                if (Mouse.Position.X == Cat.Position.X && Mouse.Position.Y == Cat.Position.Y)
+                {
+
+                    return true;
+
+                }
+
+                return false;
+            }
+
+        }
 
         public Game(int width, int height)
         {
-            new PlayingArea(width, height);
-            
-            if (Mouse.Position.X == Cat.Position.X && Mouse.Position.Y == Cat.Position.Y)
-            {
-
-                GameOver = true;
-
-            }
-        
+            PlayingArea playingarea = new PlayingArea(width, height);
+            Cat = new Cat(playingarea);
+            Mouse = new Mouse(playingarea);
         }
         
 

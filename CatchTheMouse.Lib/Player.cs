@@ -16,14 +16,14 @@ namespace CatchTheMouse.Lib
 
         protected Player(PlayingArea playingArea)
         {
-
+            Position = new Position();
+            DoMove();
             _playingArea = playingArea;
 
         }
 
         public void Move(Position position)
         {
-            if (!_playingArea.IsValid(position)) 
             {
 
                 Position.X = position.X;
@@ -35,11 +35,16 @@ namespace CatchTheMouse.Lib
 
         virtual public Position Move()
         {
-            Position.X = _random.Next(0, _playingArea.Width - 1);
-            Position.Y = _random.Next(0, _playingArea.Height - 1);
-            return Position;
-            
 
+            DoMove();
+            return Position;
+
+        }
+
+        private Position DoMove()
+        {
+            Move(new Position(_random.Next(_playingArea.Width), _random.Next(_playingArea.Height)));
+            return Position;
         }
     }
 }

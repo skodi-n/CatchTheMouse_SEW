@@ -20,7 +20,7 @@ namespace CatchTheMouse.Lib
                 Position position = new Position(Position.X + move.DeltaX, Position.Y + move.DeltaY);
                 if (_playingArea.IsValid(position))
                 {
-
+                    Move(position);
                     return position;
 
                 }

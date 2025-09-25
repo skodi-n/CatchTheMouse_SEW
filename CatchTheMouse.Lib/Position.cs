@@ -19,7 +19,7 @@ namespace CatchTheMouse.Lib
             Y = y; 
         }
 
-        public Position() {}
+        public Position() :this(0, 0) {}
 
 
 
