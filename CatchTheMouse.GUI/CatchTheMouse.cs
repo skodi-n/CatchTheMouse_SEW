@@ -24,6 +24,7 @@ namespace CatchTheMouse.GUI
         public CatchTheMouse()
         {
             InitializeComponent();
+            GameOver();
 
 
 
@@ -69,38 +70,63 @@ namespace CatchTheMouse.GUI
 
         private void GameButton_Click(object sender, EventArgs e)
         {
-
-            _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.CTM;
-            _game.Mouse.Move();
-            _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.jerry;
-            // optional Prüfung ob Spiel zu Ende ist
-
-
-
-            GameButton button = (GameButton)sender;
-
-            _buttons[_game.Cat.Position.X, _game.Cat.Position.Y].BackgroundImage = Properties.Resources.CTM;
-            _game.Cat.Move(new Position(button.X, button.Y));
             if (_game.IsGameOver)
             {
 
-                _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.tomcatchesjerry;
-
+                this.Close();
 
             }
 
             else
             {
-                _buttons[_game.Cat.Position.X, _game.Cat.Position.Y].BackgroundImage = Properties.Resources.tom;
+                _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.CTM;
+                _game.Mouse.Move();
+                _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.jerry;
+                // optional Prüfung ob Spiel zu Ende ist
 
+
+
+                GameButton button = (GameButton)sender;
+
+                _buttons[_game.Cat.Position.X, _game.Cat.Position.Y].BackgroundImage = Properties.Resources.CTM;
+                _game.Cat.Move(new Position(button.X, button.Y));
+                if (_game.IsGameOver)
+                {
+
+                    _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.tomcatchesjerry;
+                    GameOver();
+
+                }
+
+                else
+                {
+                    _buttons[_game.Cat.Position.X, _game.Cat.Position.Y].BackgroundImage = Properties.Resources.tom;
+
+
+                }
+
+
+
+                // Bewegen der Katze
+                // Prüfung ob Spiel zu Ende ist
+                // ggf. Position der Maus anzeigen
 
             }
 
 
 
-            // Bewegen der Katze
-            // Prüfung ob Spiel zu Ende ist
-            // ggf. Position der Maus anzeigen
+        }
+
+        void GameOver()
+        {
+            if (_game.IsGameOver)
+            {
+                MessageBox.Show("GEWONNEN");
+                this.Close();
+
+            }
+            
+
         }
 
         Image GetImageJerry()
