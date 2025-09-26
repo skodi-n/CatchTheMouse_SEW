@@ -12,8 +12,10 @@ namespace CatchTheMouse.GUI
         public int X { set; get; }
         public int Y { set; get; }
 
-        public GameButton()
+        public GameButton(int x, int y)
         {
+            X = x;
+            Y = y;
 
         }
 

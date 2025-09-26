@@ -15,18 +15,92 @@ namespace CatchTheMouse.GUI
 
     public partial class CatchTheMouse : Form
     {
-        Game _game = new Game(10, 10);
+        const int WIDTH = 10;
+        const int HEIGHT = 10;
+
+        Game _game = new Game(WIDTH, HEIGHT);
+        Button[,] _buttons = new Button[WIDTH, HEIGHT];
 
         public CatchTheMouse()
         {
             InitializeComponent();
-            GameButton gb = new GameButton();
-            gb.Width = 84;
-            gb.Height = 84;
-            gb.BackgroundImage = Properties.Resources.CTM;
-            gb.BackgroundImageLayout = ImageLayout.Zoom;
-            gb.Click += new System.EventHandler(this.GameButton_Click);
+
+
+
+            for (int i = 0; i < WIDTH; i++) 
+            { 
+                for (int j = 0; j < HEIGHT; j++)
+                {
+                    GameButton gb = new GameButton(i, j);
+                    gb.Width = 84;
+                    gb.Height = 84;
+
+                    if (_game.Mouse.Position.X == i && _game.Mouse.Position.Y == j)
+                    {
+
+                        gb.BackgroundImage = Properties.Resources.jerry;
+
+                    }
+
+                    else if (_game.Cat.Position.X == i && _game.Cat.Position.Y == j)
+                    {
+
+                        gb.BackgroundImage = Properties.Resources.tom;
+
+                    }
+
+                    else
+                    {
+
+                        gb.BackgroundImage = Properties.Resources.CTM;
+
+                    }
+                    gb.BackgroundImageLayout = ImageLayout.Zoom;
+                    gb.Click += new System.EventHandler(this.GameButton_Click);
+                    flwCTM.Controls.Add(gb);
+                    _buttons[i, j] = gb;
+                }
+                flwCTM.SetFlowBreak(_buttons[i, _buttons.GetLength(1) - 1], true);
+            }
+
             
+            
+        }
+
+        private void GameButton_Click(object sender, EventArgs e)
+        {
+
+            _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.CTM;
+            _game.Mouse.Move();
+            _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.jerry;
+            // optional Prüfung ob Spiel zu Ende ist
+
+
+
+            GameButton button = (GameButton)sender;
+
+            _buttons[_game.Cat.Position.X, _game.Cat.Position.Y].BackgroundImage = Properties.Resources.CTM;
+            _game.Cat.Move(new Position(button.X, button.Y));
+            if (_game.IsGameOver)
+            {
+
+                _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.tomcatchesjerry;
+
+
+            }
+
+            else
+            {
+                _buttons[_game.Cat.Position.X, _game.Cat.Position.Y].BackgroundImage = Properties.Resources.tom;
+
+
+            }
+
+
+
+            // Bewegen der Katze
+            // Prüfung ob Spiel zu Ende ist
+            // ggf. Position der Maus anzeigen
         }
 
         Image GetImageJerry()

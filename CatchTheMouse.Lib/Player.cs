@@ -16,9 +16,10 @@ namespace CatchTheMouse.Lib
 
         protected Player(PlayingArea playingArea)
         {
+            
+            _playingArea = playingArea;
             Position = new Position();
             DoMove();
-            _playingArea = playingArea;
 
         }
 
