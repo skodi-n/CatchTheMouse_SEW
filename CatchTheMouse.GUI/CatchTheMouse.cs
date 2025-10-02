@@ -70,15 +70,9 @@ namespace CatchTheMouse.GUI
 
         private void GameButton_Click(object sender, EventArgs e)
         {
-            if (_game.IsGameOver)
-            {
+            
 
-                this.Close();
-
-            }
-
-            else
-            {
+            
                 _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.CTM;
                 _game.Mouse.Move();
                 _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = Properties.Resources.jerry;
@@ -111,11 +105,11 @@ namespace CatchTheMouse.GUI
                 // Prüfung ob Spiel zu Ende ist
                 // ggf. Position der Maus anzeigen
 
-            }
-
-
-
         }
+
+
+
+        
 
         void GameOver()
         {
