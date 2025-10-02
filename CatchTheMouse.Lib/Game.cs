@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CatchTheMouse.Lib
 {
-    public class Game
+    public class Game : IGame
     {
 
 
@@ -36,7 +36,7 @@ namespace CatchTheMouse.Lib
             Cat = new Cat(playingarea);
             Mouse = new Mouse(playingarea);
         }
-        
+
 
 
     }
