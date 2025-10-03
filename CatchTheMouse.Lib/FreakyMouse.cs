@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace CatchTheMouse.Lib
 {
-    public class Mouse : Player, IMouse
+    public class FreakyMouse : IMouse
     {
+        PlayingArea _playingArea;
+
+        public FreakyMouse(PlayingArea playingArea)
+        {
+            _playingArea = playingArea;
+        }
         public bool IsVisible { get; }
 
-
-        public Mouse(PlayingArea playingArea) : base(playingArea)
-        {
-        }
-
-        public override Position Move()
+        public Position Position { get; }
+        public Position Move()
         {
             while (true)
             {
@@ -23,7 +25,8 @@ namespace CatchTheMouse.Lib
                 Position position = new Position(Position.X + move.DeltaX, Position.Y + move.DeltaY);
                 if (_playingArea.IsValid(position))
                 {
-                    Move(position);
+                    Position.X = position.X;
+                    Position.Y = position.Y;
                     return position;
 
                 }
@@ -33,8 +36,6 @@ namespace CatchTheMouse.Lib
 
 
         }
-
-
 
 
     }

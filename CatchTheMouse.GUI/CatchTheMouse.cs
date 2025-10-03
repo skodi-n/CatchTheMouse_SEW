@@ -18,7 +18,7 @@ namespace CatchTheMouse.GUI
         const int WIDTH = 10;
         const int HEIGHT = 10;
 
-        Game _game = new Game(WIDTH, HEIGHT);
+        Game _game = new Game(WIDTH, HEIGHT, 7);
         Button[,] _buttons = new Button[WIDTH, HEIGHT];
 
         public CatchTheMouse()
@@ -27,7 +27,7 @@ namespace CatchTheMouse.GUI
             GameOver();
             CreateButtons();
         }
-
+        
         void CreateButtons()
         {
             for (int i = 0; i < WIDTH; i++)

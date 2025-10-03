@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace CatchTheMouse.Lib
 {
-    public class Game : IGame
+    public class Game
     {
+        const int SCORE_MAX = 1000;
+        int _moves;
+        internal DateTime StartTime { get; } = DateTime.Now;
 
+        public int Score
+        {
+            get
+            {
 
-        public Player Mouse { get; }
+                return SCORE_MAX - _moves * 10 - Convert.ToInt32((DateTime.Now - StartTime).TotalSeconds);
+
+            }
+        }
+
+        public IMouse Mouse { get; }
 
         public Player Cat { get; }
 
@@ -30,11 +42,18 @@ namespace CatchTheMouse.Lib
 
         }
 
-        public Game(int width, int height)
+        public Game(int width, int height, int moves)
         {
             PlayingArea playingarea = new PlayingArea(width, height);
             Cat = new Cat(playingarea);
             Mouse = new Mouse(playingarea);
+            _moves = moves;
+        }
+
+        public void Play(Position catpositiion)
+        {
+            Mouse.Move();
+            Cat.Move(catpositiion);
         }
 
 
