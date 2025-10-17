@@ -8,6 +8,7 @@ namespace CatchTheMouse.Lib
 {
     public class Game
     {
+        User user;
         const int SCORE_MAX = 1000;
         int _moves;
         internal DateTime StartTime { get; } = DateTime.Now;
@@ -48,6 +49,7 @@ namespace CatchTheMouse.Lib
             Cat = new Cat(playingarea);
             Mouse = new Mouse(playingarea);
             _moves = moves;
+            
         }
 
         public void Play(Position catpositiion)

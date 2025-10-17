@@ -21,6 +21,8 @@ namespace CatchTheMouse.GUI
         Game _game = new Game(WIDTH, HEIGHT, 7);
         Button[,] _buttons = new Button[WIDTH, HEIGHT];
 
+        StatisticsForm _statisticsForm;
+
         public CatchTheMouse()
         {
             InitializeComponent();
@@ -113,6 +115,8 @@ namespace CatchTheMouse.GUI
             {
                 MessageBox.Show("GEWONNEN");
                 this.Close();
+                _statisticsForm.Show();
+                
 
             }
         }
