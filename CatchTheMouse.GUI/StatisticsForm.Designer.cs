@@ -32,7 +32,7 @@
             this.lblFirst = new System.Windows.Forms.Label();
             this.tbxFirst = new System.Windows.Forms.TextBox();
             this.lblLast = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxLast = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -61,6 +61,7 @@
             this.tbxFirst.Name = "tbxFirst";
             this.tbxFirst.Size = new System.Drawing.Size(209, 31);
             this.tbxFirst.TabIndex = 2;
+            this.tbxFirst.TextChanged += new System.EventHandler(this.tbxFirst_TextChanged);
             // 
             // lblLast
             // 
@@ -71,12 +72,13 @@
             this.lblLast.TabIndex = 3;
             this.lblLast.Text = "Nachname: ";
             // 
-            // textBox1
+            // tbxLast
             // 
-            this.textBox1.Location = new System.Drawing.Point(577, 592);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 31);
-            this.textBox1.TabIndex = 4;
+            this.tbxLast.Location = new System.Drawing.Point(577, 592);
+            this.tbxLast.Name = "tbxLast";
+            this.tbxLast.Size = new System.Drawing.Size(209, 31);
+            this.tbxLast.TabIndex = 4;
+            this.tbxLast.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnStart
             // 
@@ -94,7 +96,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1187, 779);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxLast);
             this.Controls.Add(this.lblLast);
             this.Controls.Add(this.tbxFirst);
             this.Controls.Add(this.lblFirst);
@@ -112,7 +114,7 @@
         private System.Windows.Forms.Label lblFirst;
         private System.Windows.Forms.TextBox tbxFirst;
         private System.Windows.Forms.Label lblLast;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxLast;
         private System.Windows.Forms.Button btnStart;
     }
 }

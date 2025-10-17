@@ -14,17 +14,20 @@ namespace CatchTheMouse.GUI
     public partial class StatisticsForm : Form
     {
         UserManager usermanager = new UserManager();
-        CatchTheMouse _catchthemouse = new CatchTheMouse();
+        CatchTheMouse _catchthemouse; 
 
         public StatisticsForm()
         {
             InitializeComponent();
             LoadUsers();
+            _catchthemouse = new CatchTheMouse();
+            _catchthemouse.StatisticsForm = this;
         }
-        public void LoadUsers()
+        internal void LoadUsers()
         {
-
+            lstUsers.Items.Clear();
             lstUsers.Items.AddRange(usermanager.GetUsers());
+            
 
         } 
 
@@ -35,8 +38,34 @@ namespace CatchTheMouse.GUI
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            _catchthemouse.Show();
-            this.Hide();
+            if (tbxFirst == null && tbxLast == null)
+            {
+                _catchthemouse.Show();
+                this.Hide();
+
+
+            }
+
+            else
+            {
+
+                usermanager.AddUser(new User(tbxFirst.Text, tbxLast.Text, 0));
+                _catchthemouse.Show();
+                this.Hide();
+
+            }
+
+            
+
+        }
+
+        private void tbxFirst_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

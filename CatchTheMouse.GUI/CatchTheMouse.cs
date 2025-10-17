@@ -21,13 +21,17 @@ namespace CatchTheMouse.GUI
         Game _game = new Game(WIDTH, HEIGHT, 7);
         Button[,] _buttons = new Button[WIDTH, HEIGHT];
 
-        StatisticsForm _statisticsForm;
+        internal StatisticsForm StatisticsForm { get; set; }
+        
+
 
         public CatchTheMouse()
         {
             InitializeComponent();
             GameOver();
             CreateButtons();
+
+
         }
         
         void CreateButtons()
@@ -114,10 +118,9 @@ namespace CatchTheMouse.GUI
             if (_game.IsGameOver)
             {
                 MessageBox.Show("GEWONNEN");
-                this.Close();
-                _statisticsForm.Show();
-                
-
+                this.Hide();
+                StatisticsForm.LoadUsers();
+                StatisticsForm.Show();
             }
         }
 
