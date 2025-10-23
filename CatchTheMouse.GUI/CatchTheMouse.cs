@@ -28,7 +28,7 @@ namespace CatchTheMouse.GUI
         public CatchTheMouse()
         {
             InitializeComponent();
-            GameOver();
+            CheckGameOver();
             CreateButtons();
 
 
@@ -90,7 +90,7 @@ namespace CatchTheMouse.GUI
                 {
 
                     _buttons[_game.Mouse.Position.X, _game.Mouse.Position.Y].BackgroundImage = GetImagetcj();
-                    GameOver();
+                    CheckGameOver();
 
                 }
 
@@ -113,7 +113,7 @@ namespace CatchTheMouse.GUI
 
         
 
-        void GameOver()
+        void CheckGameOver()
         {
             if (_game.IsGameOver)
             {

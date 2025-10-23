@@ -8,7 +8,15 @@ namespace CatchTheMouse.Lib
 {
     public class Mouse : Player, IMouse
     {
-        public bool IsVisible { get; }
+        public bool IsVisible
+        {
+            get
+            {
+
+                return true;
+            }
+
+        }
 
 
         public Mouse(PlayingArea playingArea) : base(playingArea)

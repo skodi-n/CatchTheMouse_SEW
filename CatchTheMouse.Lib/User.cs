@@ -8,13 +8,20 @@ namespace CatchTheMouse.Lib
 {
     public class User
     {
-        public string FirstName { get; }
+        public string FirstName { get; private set; }
 
-        public string LastName { get; }
+        public string LastName { get; private set; }
 
-        public DateTime LastGamesTime { get; }
+        public DateTime LastGamesTime { get; private set; }
 
-        public int HighScore { get; }
+        public int HighScore 
+        { 
+            get;
+
+            private set;
+            
+        
+        }
 
 
         public User(string firstName, string lastName, int highscore)
@@ -30,6 +37,17 @@ namespace CatchTheMouse.Lib
             LastName = lastName;
             LastGamesTime = lastgamesTime;
             HighScore = highscore;
+        }
+
+        public int SetNewScore(int updatedScore)
+        {
+            if (updatedScore > HighScore)
+            {
+                HighScore = updatedScore;
+            }
+            LastGamesTime = DateTime.Now;
+            return HighScore;
+
         }
 
         public override string ToString()

@@ -8,7 +8,7 @@ namespace CatchTheMouse.Lib
 {
     public class UserManager
     {
-        List<User> _users = new List<User>(5);
+        List<User> _users = new List<User>();
 
         public UserManager()
         {

@@ -10,15 +10,21 @@ namespace CatchTheMouse.Lib
     {
         User user;
         const int SCORE_MAX = 1000;
-        int _moves;
+        int _moves = 0;
         internal DateTime StartTime { get; } = DateTime.Now;
 
         public int Score
         {
             get
             {
+                int score = SCORE_MAX - _moves * 10 - Convert.ToInt32((DateTime.Now - StartTime).TotalSeconds);
+                if (score >= 0)
+                {
 
-                return SCORE_MAX - _moves * 10 - Convert.ToInt32((DateTime.Now - StartTime).TotalSeconds);
+                    return score;
+
+                }
+                return 0;
 
             }
         }
@@ -48,7 +54,6 @@ namespace CatchTheMouse.Lib
             PlayingArea playingarea = new PlayingArea(width, height);
             Cat = new Cat(playingarea);
             Mouse = new Mouse(playingarea);
-            _moves = moves;
             
         }
 
@@ -56,6 +61,7 @@ namespace CatchTheMouse.Lib
         {
             Mouse.Move();
             Cat.Move(catpositiion);
+            _moves++;
         }
 
 
